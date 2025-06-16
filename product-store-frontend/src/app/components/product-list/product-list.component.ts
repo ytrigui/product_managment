@@ -21,11 +21,12 @@ import {
   RowDDService,
   SelectionService,
   ReorderService,
-  ResizeService,
+  ResizeService, GroupSettingsModel, GroupEventArgs,
 
 } from '@syncfusion/ej2-angular-grids';
 import {ButtonModule} from '@syncfusion/ej2-angular-buttons';
 import {DialogComponent, DialogModule} from '@syncfusion/ej2-angular-popups';
+
 
 @Component({
   selector: 'app-product-list',
@@ -57,6 +58,8 @@ export class ProductListComponent implements OnInit {
   selectedProduct!: Product | null;
   public showDialog: boolean = false;
 
+  public groupSettings?: GroupSettingsModel;
+  public message?: string
 
   public pageSettings: PageSettingsModel = { pageSize: 5 };
 
@@ -115,6 +118,22 @@ export class ProductListComponent implements OnInit {
   openProductDetails(product: Product): void {
     this.selectedProduct = product;
     this.productDialog.show();
+  }
+
+  actionBegin(args: GroupEventArgs) {
+    if (args.requestType === 'grouping' && args.columnName === 'OrderID') {
+      args.cancel = true
+      this.message = args.requestType + ' action is cancelled for ' + args.columnName + ' column';
+    }
+  }
+
+  actionComplete(args: GroupEventArgs) {
+    if (args.requestType === 'grouping') {
+      this.message = args.requestType + ' action completed for ' + args.columnName + ' column';
+    }
+    else {
+      this.message = ''
+    }
   }
 
 }

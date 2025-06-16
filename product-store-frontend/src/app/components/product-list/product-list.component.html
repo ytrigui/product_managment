@@ -5,6 +5,7 @@
   </header>
 
   <div *ngIf="products$ | async as products; else empty">
+    <div style="margin-left:100px;"><p style="color:red;" id="message">{{message}}</p></div>
     <ejs-grid
       #grid
       [dataSource]="products"
@@ -20,9 +21,9 @@
       [cssClass]="'custom-grid'"
       cssClass="custom-grid-style"
       [selectionSettings]="{type: 'Multiple', mode: 'Row'}"
+      [allowGrouping]='true'  (actionComplete)='actionComplete($event)' (actionBegin)='actionBegin($event)' height='260px'
 
     >
-
       <e-columns>
         <e-column headerText="#" width="60" [template]="indexTemplate"></e-column>
         <e-column  field="name" headerText="Name" width="150" [allowResizing]="true"  [template]="nameTemplate" ></e-column>
