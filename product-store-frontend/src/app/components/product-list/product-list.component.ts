@@ -58,7 +58,7 @@ export class ProductListComponent implements OnInit {
   public showDialog: boolean = false;
 
 
-  public pageSettings: PageSettingsModel = { pageSize: 6 };
+  public pageSettings: PageSettingsModel = { pageSize: 5 };
 
   constructor(private productService: ProductService) {}
 

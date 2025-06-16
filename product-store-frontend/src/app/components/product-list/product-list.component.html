@@ -73,19 +73,22 @@
 
     <ejs-dialog
       #confirmDialog
-      header="Delete Product"
       [visible]="false"
       [isModal]="true"
       [showCloseIcon]="true"
-      width="350px"
+      width="380px"
       [animationSettings]="{ effect: 'Zoom' }"
       [buttons]="dialogButtons"
-      cssClass="confirm-dialog"
+      cssClass="confirm-dialog custom-confirm-dialog"
     >
       <div class="dialog-content">
-        Are you sure you want to delete <strong>{{ selectedProduct?.name }}</strong>?
+        <div class="confirm-message">
+          Are you sure you want to delete
+          <strong>{{ selectedProduct?.name }}</strong>?
+        </div>
       </div>
     </ejs-dialog>
+
 
 
 
