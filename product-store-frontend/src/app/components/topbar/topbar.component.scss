@@ -1,0 +1,35 @@
+
+
+/* Background & general styling */
+::ng-deep .custom-toolbar.e-toolbar {
+  background-color: #1976d2; /* Blue */
+  color: white;
+  padding: 10px 20px;
+}
+
+/* Logo text styling */
+.toolbar-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding-left: 10px;
+}
+
+/* Spacer to push right items */
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+/* Toolbar links */
+.toolbar-link {
+  color: white;
+  text-decoration: none;
+  padding: 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.toolbar-link:hover {
+  color: #bbdefb; /* Light blue on hover */
+}

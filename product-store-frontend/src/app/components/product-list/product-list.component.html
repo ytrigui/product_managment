@@ -1,0 +1,105 @@
+<section class="products">
+  <header class="products__header">
+    <h2 class="title-pr">List of Products</h2>
+    <button ejs-button cssClass="e-success" content="Add Product" routerLink="/add" ></button>
+  </header>
+
+  <div *ngIf="products$ | async as products; else empty">
+    <ejs-grid
+      #grid
+      [dataSource]="products"
+      [allowPaging]="true"
+      [allowSorting]="true"
+      [filterSettings]="{ type: 'FilterBar' }"
+      [allowFiltering]="true"
+      [allowResizing]="true"
+      [allowRowDragAndDrop]="true"
+      [allowReordering]="true"
+      [pageSettings]="pageSettings"
+      [resizeSettings]="{ mode: 'Normal' }"
+      [cssClass]="'custom-grid'"
+      cssClass="custom-grid-style"
+      [selectionSettings]="{type: 'Multiple', mode: 'Row'}"
+    >
+
+      <e-columns>
+        <e-column headerText="#" width="60" [template]="indexTemplate"></e-column>
+        <e-column  field="name" headerText="Name" width="150" [allowResizing]="true"  [template]="nameTemplate" ></e-column>
+        <e-column field="description" headerText="Description" width="200" [allowResizing]="true"></e-column>
+        <e-column field="price" headerText="Price ($)" width="120" format="N2" textAlign="Right" [allowResizing]="true"></e-column>
+        <e-column headerText="Actions" width="150" [template]="actionTemplate" [allowResizing]="false"></e-column>
+      </e-columns>
+
+      <ng-template #indexTemplate let-data>
+        {{getRowIndex(data)}}
+      </ng-template>
+
+      <ng-template #nameTemplate let-data>
+        <a class="product-link" (click)="openProductDetails(data)">{{ data.name }}</a>
+      </ng-template>
+
+      <ng-template #actionTemplate let-data>
+        <button ejs-button cssClass="e-info" content="Edit" routerLink="/edit/{{ data.id }}"></button>
+
+        <button ejs-button cssClass="e-danger" content="Delete" (click)="delete(data.id)"></button>
+      </ng-template>
+    </ejs-grid>
+
+    <ejs-dialog
+      #productDialog
+      header="{{ selectedProduct?.name }}"
+      [visible]="false"
+      [isModal]="true"
+      [showCloseIcon]="true"
+      width="400px"
+      [animationSettings]="{ effect: 'Fade' }"
+      cssClass="product-detail-dialog"
+    >
+      <div *ngIf="selectedProduct" class="dialog-content">
+        <img
+          *ngIf="selectedProduct.imageUrl"
+          [src]="selectedProduct.imageUrl"
+          alt="{{ selectedProduct.name }}"
+          class="product-image"
+        />
+        <p class="product-description">
+          <strong>Description:</strong> {{ selectedProduct.description }}
+        </p>
+        <p class="product-price">
+          <strong>Price:</strong> ${{ selectedProduct.price }}
+        </p>
+      </div>
+    </ejs-dialog>
+
+    <ejs-dialog
+      #confirmDialog
+      header="Delete Product"
+      [visible]="false"
+      [isModal]="true"
+      [showCloseIcon]="true"
+      width="350px"
+      [animationSettings]="{ effect: 'Zoom' }"
+      [buttons]="dialogButtons"
+      cssClass="confirm-dialog"
+    >
+      <div class="dialog-content">
+        Are you sure you want to delete <strong>{{ selectedProduct?.name }}</strong>?
+      </div>
+    </ejs-dialog>
+
+
+
+  </div>
+
+  <ng-template #empty>
+    <p class="empty-state">
+      No products yet — click <strong>Add Product</strong> to get started.
+    </p>
+  </ng-template>
+
+
+
+</section>
+
+
+

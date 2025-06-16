@@ -1,0 +1,49 @@
+
+.logo{
+  margin: 10px;
+  font-weight: bold;
+
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-icon {
+  display: none;
+  background-color: #dddddd;
+  color: #1268bd;
+  /* Hidden by default (desktop) */
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;       /* Hide buttons on small screens */
+  }
+
+  .nav-links {
+    display: none;         /* Hide nav links on mobile */
+  }
+
+  .menu-icon {
+    display: inline-flex; /* Show menu icon */
+  }
+
+}
+
+mat-toolbar{
+  background-color: #1268bd;
+  color: #dddddd;
+}
+
+.but-men{
+  background-color: #dddddd;
+  color: #1268bd;
+}

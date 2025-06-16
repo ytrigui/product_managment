@@ -1,0 +1,40 @@
+<section class="products">
+  <header class="products__header">
+    <h2 class="title-pr">List of Products</h2>
+
+    <!-- plain button version (no Angular Material needed) -->
+    <button mat-button class="btn btn--primary" routerLink="/add">Add Product</button>
+  </header>
+
+  <!-- show table only when Observable emits -->
+  <table class="products__table" *ngIf="products$ | async as products; else empty">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th class="price-col">Price ($)</th>
+      <th class="action-col">Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let p of products; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.description }}</td>
+      <td class="price-col">{{ p.price | number : '1.2-2' }}</td>
+      <td class="action-col">
+        <button mat-button class="btn btn--small" routerLink="/edit/{{ p.id }}">Edit</button>
+        <button mat-button class="btn btn--small btn--danger" (click)="delete(p.id!)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-template #empty>
+    <p class="empty-state">
+      No products yet — click <strong>Add Product</strong> to get started.
+    </p>
+  </ng-template>
+</section>
