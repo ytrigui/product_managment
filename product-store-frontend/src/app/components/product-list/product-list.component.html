@@ -5,7 +5,7 @@
   </header>
 
   <div *ngIf="products$ | async as products; else empty">
-    <div style="margin-left:100px;"><p style="color:red;" id="message">{{message}}</p></div>
+    <div style="margin-left:100px;"><p style="color:#af1212;" id="message">{{message}}</p></div>
     <ejs-grid
       #grid
       [dataSource]="products"
@@ -21,7 +21,7 @@
       [cssClass]="'custom-grid'"
       cssClass="custom-grid-style"
       [selectionSettings]="{type: 'Multiple', mode: 'Row'}"
-      [allowGrouping]='true'  (actionComplete)='actionComplete($event)' (actionBegin)='actionBegin($event)' height='260px'
+      [allowGrouping]='true'  (actionComplete)='actionComplete($event)' (actionBegin)='actionBegin($event)'
 
     >
       <e-columns>
@@ -55,7 +55,7 @@
       [showCloseIcon]="true"
       width="400px"
       [animationSettings]="{ effect: 'Fade' }"
-      cssClass="product-detail-dialog"
+
     >
       <div *ngIf="selectedProduct" class="dialog-content">
         <img
