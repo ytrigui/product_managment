@@ -55,6 +55,7 @@
 
   /* Content area */
   .e-dlg-content {
+    margin: 8px;
     padding: 1.5rem;
 
 
@@ -74,74 +75,21 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
-    max-height: 280px;
-    max-width: 280px;
-    margin: 8px;
+    max-height: 270px;
+    max-width: 270px;
+
   }
 
   /* Price highlight */
   p:last-child {
-    font-size: 1.1rem;
-    color: #4caf50;
-    margin-top: 1rem;
-  }
-}
-
-
-
-/*================*/
-
-
-::ng-deep .custom-confirm-dialog {
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-
-  .e-dlg-header {
     font-size: 20px;
-    font-weight: 600;
-    color: #dc3545; // Red text
-    background-color: #f9f9f9;
-    padding: 15px 20px;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .dialog-content {
-    padding: 20px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    color: #333;
-  }
-
-  .confirm-message strong {
-    color: #dc3545;
-  }
-
-  .e-footer-content {
-    padding: 10px 20px;
-    background-color: #f8f8f8;
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-
-    .e-btn {
-      min-width: 90px;
-      border-radius: 6px;
-    }
-
-    .e-primary {
-      background-color: #dc3545;
-      border-color: #dc3545;
-      color: white;
-    }
-
-    .e-flat {
-      color: #6c757d;
-    }
+    color: #4caf50;
+    margin: 10px;
   }
 }
+
+
+
 
 
 
