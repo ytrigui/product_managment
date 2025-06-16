@@ -1,0 +1,36 @@
+<section class="dashboard">
+    <div class="dashboard-header">
+        <h2 class="title">Analytics Dashboard</h2>
+    </div>
+
+    <div class="stats-cards">
+        <!-- Total Products Card -->
+        <div class="custom-card">
+            <div class="card-header">
+                <h3>Total Products</h3>
+            </div>
+            <div style="font-size: 50px" class="card-content">
+                {{ totalProducts }}
+            </div>
+        </div>
+
+        <!-- Last Added Product Card -->
+        <div *ngIf="lastAddedProduct" class="custom-card">
+            <div class="card-header">
+                <h3>Last Added Product</h3>
+            </div>
+            <div class="card-content top-product">
+                <img
+                        *ngIf="lastAddedProduct.imageUrl"
+                        [src]="lastAddedProduct.imageUrl"
+                        alt="{{ lastAddedProduct.name }}"
+                        class="product-image"
+                />
+                <div>
+                    <p><strong>{{ lastAddedProduct.name }}</strong></p>
+                    <p>Price: ${{ lastAddedProduct.price }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

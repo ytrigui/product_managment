@@ -1,0 +1,45 @@
+.dashboard {
+  padding: 2rem;
+}
+
+.dashboard-header {
+  margin-bottom: 1.5rem;
+}
+
+.stats-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.custom-card {
+  width: 300px;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  font-size: 16px;
+}
+
+.top-product {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.product-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
