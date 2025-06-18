@@ -33,7 +33,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/app/assets/material4.scss"
+              "src/app/assets/material3.scss"
 
 
             ],

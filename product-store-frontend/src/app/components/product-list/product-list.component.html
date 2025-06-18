@@ -1,7 +1,7 @@
 <section class="products">
   <header class="products__header">
     <h2 class="title-pr">List of Products</h2>
-    <button ejs-button cssClass="e-success" content="Add Product" routerLink="/add" ></button>
+    <button ejs-button  id="sf-fab1" class="e-control e-lib e-primary e-btn  " routerLink="/add" ><span class="e-btn-icon e-icons e-plus e-icon-left"></span>Add Product</button>
   </header>
 
   <div *ngIf="products$ | async as products; else empty">

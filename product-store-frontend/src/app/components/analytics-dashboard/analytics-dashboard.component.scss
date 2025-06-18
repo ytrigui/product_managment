@@ -1,23 +1,47 @@
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  margin: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
 .dashboard {
   padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
 
 .dashboard-header {
   margin-bottom: 1.5rem;
+  font-size: 30px;
 }
+
 
 .stats-cards {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .custom-card {
   width: 300px;
   padding: 1rem;
   border-radius: 12px;
-  background: #f8f9fa;
-  border: 1px solid #ddd;
+  background: #e6e6e6;
+  border: 1px solid #9f34af;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
